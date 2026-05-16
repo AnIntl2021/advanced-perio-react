@@ -37,14 +37,25 @@ export default function Navbar() {
           </Link>
 
           <div className="navbar__nav">
-            {NAV_LINKS.map(({ to, label, hash: linkHash }) => (
-              <Link 
-                key={to} 
-                to={getLinkTarget(to, linkHash)} 
-                className={isActive(to, linkHash) ? 'active' : ''}
-              >
-                {label}
-              </Link>
+            {NAV_LINKS.map(({ to, label, hash: linkHash, isExternal }) => (
+              isExternal ? (
+                <a 
+                  key={to} 
+                  href={to} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  {label}
+                </a>
+              ) : (
+                <Link 
+                  key={to} 
+                  to={getLinkTarget(to, linkHash)} 
+                  className={isActive(to, linkHash) ? 'active' : ''}
+                >
+                  {label}
+                </Link>
+              )
             ))}
           </div>
 
@@ -66,15 +77,27 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <div className={`mobile-menu${menuOpen ? ' open' : ''}`}>
-        {NAV_LINKS.map(({ to, label, hash: linkHash }) => (
-          <Link 
-            key={to} 
-            to={getLinkTarget(to, linkHash)} 
-            className={isActive(to, linkHash) ? 'active' : ''} 
-            onClick={closeMenu}
-          >
-            {label}
-          </Link>
+        {NAV_LINKS.map(({ to, label, hash: linkHash, isExternal }) => (
+          isExternal ? (
+            <a 
+              key={to} 
+              href={to} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              onClick={closeMenu}
+            >
+              {label}
+            </a>
+          ) : (
+            <Link 
+              key={to} 
+              to={getLinkTarget(to, linkHash)} 
+              className={isActive(to, linkHash) ? 'active' : ''} 
+              onClick={closeMenu}
+            >
+              {label}
+            </Link>
+          )
         ))}
         <a href={PHONE_URI} className="btn btn-primary" onClick={closeMenu}>
           <i className="fas fa-phone-alt"></i> Call {PHONE_NUMBER}

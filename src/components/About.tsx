@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import drPhoto       from '../assets/dr-photo.jpg';
+import drFamily2     from '../assets/dr-family-2.jpeg';
 import drDds         from '../assets/dr-dds.png';
 import drCommunity   from '../assets/dr-community.jpg';
 import drPresentation from '../assets/dr-presentation.png';
@@ -45,9 +46,9 @@ export default function About() {
           <div className="dr-bio">
             {/* Sticky photo column */}
             <div className="dr-bio__photo">
-              <img src={drPhoto} alt="Dr. Houssam Alghadban" />
+              <img src={drFamily2} alt="Dr. Houssam Alghadban and Family" style={{ boxShadow: 'var(--shadow-lg)' }} />
               <div className="dr-bio__photo-caption">
-                <strong>Dr. Houssam Alghadban</strong>
+                <strong>Dr. Houssam Alghadban &amp; Family</strong>
                 <span>DDS — Board-Certified Periodontist</span>
               </div>
               <div style={{ marginTop: '1rem' }}>
@@ -58,9 +59,9 @@ export default function About() {
 
             {/* Bio text column */}
             <div className="dr-bio__text">
-              <span className="eyebrow">About the Doctor</span>
+              <span className="eyebrow">Meet The Periodontist</span>
               <h1 style={{ fontSize: 'clamp(1.75rem, 3vw, 2.25rem)', marginBottom: '1rem' }}>
-                Meet Dr. Al
+                Dr. Houssam Alghadban, DDS
               </h1>
               <div className="about-split__creds" style={{ marginTop: 0, marginBottom: '1.5rem' }}>
                 <span className="cred-tag">Board-Certified Periodontist</span>
@@ -68,39 +69,41 @@ export default function About() {
                 <span className="cred-tag">Oral Plastic Surgery</span>
               </div>
 
-              <h2>Biography</h2>
               <p>
-                Dr. Houssam Alghadban, fondly known as <strong>Dr. Al</strong>, has been
-                practicing dentistry since 2001. He specializes in periodontology, oral
-                plastic surgery, and dental implants. Dr. Al completed his postdoctoral
-                education in periodontics at the prestigious Louisiana State University
-                School of Dentistry.
-              </p>
-              <p>
-                Dr. Al is a board-certified Diplomate of the American Board of Periodontology—an
-                honor earned by only a select group of periodontists who demonstrate advanced
-                knowledge and clinical excellence. He is also an adjunct professor at the
-                UT Health San Antonio School of Dentistry, where he contributes to training
-                the next generation of dental professionals.
+                At our practice, we specialize in providing advanced gum treatment services utilizing the latest
+                technologies. Our founder, Dr. Houssam Alghadban, is a highly skilled and board-certified 
+                periodontist with over 15 years of experience in San Antonio.
               </p>
 
-              <h2>Clinical Philosophy</h2>
+              <h2>Expertise in Contemporary Modalities</h2>
               <p>
-                Dr. Al is passionate about providing every patient with a personalized treatment
-                plan that addresses their unique needs. He believes in using the latest
-                technology and minimally invasive techniques to ensure the best outcomes with
-                minimal discomfort and recovery time.
+                Dr. Alghadban is proficient in all the contemporary nonsurgical and surgical gum treatment 
+                modalities. These include:
               </p>
-
-              <h2>Education &amp; Training</h2>
               <ul className="about-split__list">
-                <li><i className="fas fa-graduation-cap"></i> Doctorate of Dental Surgery (DDS)</li>
-                <li><i className="fas fa-graduation-cap"></i> Postdoctoral Periodontics — Louisiana State University School of Dentistry</li>
-                <li><i className="fas fa-certificate"></i> Diplomate — American Board of Periodontology</li>
-                <li><i className="fas fa-chalkboard-teacher"></i> Adjunct Professor — UT Health San Antonio School of Dentistry</li>
+                <li><i className="fas fa-check-circle" style={{ color: 'var(--gold)' }}></i> Regeneration</li>
+                <li><i className="fas fa-check-circle" style={{ color: 'var(--gold)' }}></i> Dental Implants</li>
+                <li><i className="fas fa-check-circle" style={{ color: 'var(--gold)' }}></i> Laser Surgery</li>
+                <li><i className="fas fa-check-circle" style={{ color: 'var(--gold)' }}></i> Esthetic Plastic Periodontal Surgery</li>
+                <li><i className="fas fa-check-circle" style={{ color: 'var(--gold)' }}></i> Gum Disease</li>
+                <li><i className="fas fa-check-circle" style={{ color: 'var(--gold)' }}></i> Wisdom Teeth</li>
               </ul>
 
-              <h2>Memberships &amp; Affiliations</h2>
+              <h2 style={{ color: 'var(--teal)', marginTop: '2.5rem' }}>Profile</h2>
+              <p>
+                Dr. Houssam Alghadban, also known as <strong>Dr. Al</strong>, has been practicing dentistry since 2001. 
+                He specializes in periodontology, oral plastic surgery, and dental implants. After his exposure to 
+                different specialties, he decided to do a three years intensive postdoctoral program in Periodontology. 
+                Dr. Al was accepted at Louisiana State University, School of Dentistry in the periodontics 
+                postdoctoral program. This course focused on the clinical treatment of patients and research activities.
+              </p>
+              <p>
+                Dr. Al has been providing specialty dental care services in San Antonio, Texas for more than 15 years. 
+                When he is not at the office, Dr. Al enjoys spending quality time with his wife, Nour, and daughters, 
+                Talia, Alma and Luna.
+              </p>
+
+              <h2 style={{ marginTop: '2.5rem' }}>Memberships &amp; Affiliations</h2>
               <div className="membership-grid">
                 {MEMBERSHIPS.map(({ img, alt, name }) => (
                   <div key={alt} className="membership-item">

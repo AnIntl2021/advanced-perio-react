@@ -1,9 +1,30 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import heroVideo   from '../assets/hero-video.mp4';
 import drPhoto     from '../assets/dr-photo.jpg';
+import drFamily2   from '../assets/dr-family-2.jpeg';
 import smileWoman  from '../assets/smile-woman.jpg';
 import { SERVICES, MEMBERSHIPS } from '../utils/data';
-import { PHONE_NUMBER, PHONE_URI } from '../utils/constants';
+import { PHONE_NUMBER, PHONE_URI, GOOGLE_MAPS_API_KEY } from '../utils/constants';
+
+function VideoCard({ videoId, title, className }: { videoId: string, title: string, className?: string }) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <div 
+      className={`video-card ${className}`} 
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <iframe
+        src={`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&enablejsapi=1${isHovered ? '&autoplay=1&mute=1' : ''}`}
+        title={title}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      />
+    </div>
+  );
+}
 
 const SCROLLING_MEMBERSHIPS = [...MEMBERSHIPS, ...MEMBERSHIPS];
 
@@ -314,33 +335,19 @@ export default function Home() {
       </section>
 
       {/* ── PATIENT TESTIMONIALS ─────────────────────────────────── */}
-      <section className="section section--navy section-anchor" id="home-testimonials">
+      <section className="section section--alt section-anchor" id="home-testimonials">
         <div className="container">
           <div className="section-header">
-            <span className="eyebrow" style={{ color: 'var(--gold)' }}>Real Stories</span>
-            <h2 className="section-title text-white">Hear from Our Patients</h2>
-            <p className="section-lead text-white" style={{ opacity: .75 }}>
+            <span className="eyebrow">Real Stories</span>
+            <h2 className="section-title">Hear from Our Patients</h2>
+            <p className="section-lead">
               Real experiences from patients who transformed their smiles with
               Advanced Periodontics &amp; Dental Implants.
             </p>
           </div>
           <div className="testimonials__grid">
-            <div className="video-card fade-up">
-              <iframe
-                src="https://www.youtube.com/embed/1Thnx8jEXYY?rel=0&modestbranding=1"
-                title="Patient Testimonial 1"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
-            <div className="video-card fade-up-2">
-              <iframe
-                src="https://www.youtube.com/embed/1QbRIMxLSVw?rel=0&modestbranding=1"
-                title="Patient Testimonial 2"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
+            <VideoCard videoId="1Thnx8jEXYY" title="Patient Testimonial 1" className="fade-up" />
+            <VideoCard videoId="1QbRIMxLSVw" title="Patient Testimonial 2" className="fade-up-2" />
           </div>
         </div>
       </section>

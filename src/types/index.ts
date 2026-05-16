@@ -2,6 +2,7 @@ export interface NavLink {
   to: string;
   label: string;
   hash?: string;
+  isExternal?: boolean;
 }
 
 export interface Service {

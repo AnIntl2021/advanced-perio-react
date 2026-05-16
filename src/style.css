@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
-/* ─── TOKENS ──────────────────────────────────────────────────────────────── */
+/* â”€â”€â”€ TOKENS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 :root {
   --teal:          #00615a;
   --teal-dark:     #004944;
@@ -35,7 +35,7 @@
   --glass-border: rgba(255,255,255,.28);
 }
 
-/* ─── RESET ───────────────────────────────────────────────────────────────── */
+/* â”€â”€â”€ RESET â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { scroll-behavior: smooth; }
@@ -54,7 +54,7 @@ img { display: block; max-width: 100%; }
 a  { color: inherit; text-decoration: none; }
 button { cursor: pointer; font-family: inherit; border: none; background: none; }
 
-/* ─── TYPOGRAPHY ─────────────────────────────────────────────────────────── */
+/* â”€â”€â”€ TYPOGRAPHY â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 h1,h2,h3 { 
   font-family: var(--font-serif); 
   line-height: 1.15; 
@@ -90,7 +90,7 @@ h4,h5,h6 {
   max-width: 560px;
 }
 
-/* ─── LAYOUT ─────────────────────────────────────────────────────────────── */
+/* â”€â”€â”€ LAYOUT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .container {
   width: 100%;
   max-width: var(--max-w);
@@ -102,9 +102,10 @@ h4,h5,h6 {
 .section--alt { background: var(--off-white); }
 .section--teal { background: var(--teal); color: var(--white); }
 .section--navy { background: var(--navy); color: var(--white); }
+.section--gold { background: var(--gold); color: var(--navy); }
 .section-anchor { scroll-margin-top: 136px; }
 
-/* ─── BUTTONS ─────────────────────────────────────────────────────────────── */
+/* â”€â”€â”€ BUTTONS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -181,11 +182,11 @@ h4,h5,h6 {
 
 .btn-sm { padding: .55rem 1.25rem; font-size: .82rem; }
 
-/* ─── APP SHELL ──────────────────────────────────────────────────────────── */
+/* â”€â”€â”€ APP SHELL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .app { display: flex; flex-direction: column; min-height: 100vh; }
 main { flex: 1; }
 
-/* ─── TOP BAR ────────────────────────────────────────────────────────────── */
+/* â”€â”€â”€ TOP BAR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .topbar {
   background: var(--navy);
   color: rgba(255,255,255,.8);
@@ -256,7 +257,7 @@ main { flex: 1; }
   100% { opacity: 1; transform: scale(1); }
 }
 
-/* ─── NAVBAR ─────────────────────────────────────────────────────────────── */
+/* â”€â”€â”€ NAVBAR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .navbar {
   position: sticky;
   top: 0;
@@ -359,7 +360,7 @@ main { flex: 1; }
 .mobile-menu a.active { color: var(--teal); font-weight: 600; }
 .mobile-menu .btn { margin-top: 1rem; justify-content: center; }
 
-/* ─── HERO ───────────────────────────────────────────────────────────────── */
+/* â”€â”€â”€ HERO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .hero {
   position: relative;
   min-height: 92vh;
@@ -563,7 +564,7 @@ main { flex: 1; }
 }
 .hero__card select option { background: var(--navy); color: var(--white); }
 
-/* ─── STATS BAR ──────────────────────────────────────────────────────────── */
+/* â”€â”€â”€ STATS BAR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .stats {
   background: var(--teal);
   padding: 3.5rem 0;
@@ -602,7 +603,7 @@ main { flex: 1; }
   color: rgba(255,255,255,.65);
 }
 
-/* ─── ABOUT SECTION HEADER ───────────────────────────────────────────────── */
+/* â”€â”€â”€ ABOUT SECTION HEADER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .about-section-header {
   text-align: center;
   margin: 0 auto 3rem;
@@ -636,7 +637,7 @@ main { flex: 1; }
   width: 100%;
 }
 
-/* ─── ABOUT SNIPPET ──────────────────────────────────────────────────────── */
+/* â”€â”€â”€ ABOUT SNIPPET â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .about-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -729,7 +730,7 @@ main { flex: 1; }
   flex-shrink: 0;
 }
 
-/* ─── SERVICES GRID ──────────────────────────────────────────────────────── */
+/* â”€â”€â”€ SERVICES GRID â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .section-header {
   text-align: center;
   max-width: 620px;
@@ -805,7 +806,7 @@ main { flex: 1; }
 }
 .svc-card:hover .svc-card__link { gap: .6rem; }
 
-/* ─── MEMBERSHIPS ────────────────────────────────────────────────────────── */
+/* â”€â”€â”€ MEMBERSHIPS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .memberships { padding: 3rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 .memberships__label {
   text-align: center;
@@ -865,7 +866,7 @@ main { flex: 1; }
   }
 }
 
-/* ─── VIDEO TESTIMONIALS ─────────────────────────────────────────────────── */
+/* â”€â”€â”€ VIDEO TESTIMONIALS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .testimonials__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -876,10 +877,10 @@ main { flex: 1; }
   position: relative;
   border-radius: var(--radius-md);
   overflow: hidden;
-  background: var(--navy);
+  background: var(--gold);
   aspect-ratio: 16/9;
   animation: slideInUp .6s ease both;
-  box-shadow: 0 8px 32px rgba(0,0,0,.3);
+  box-shadow: 0 8px 32px rgba(197, 160, 89, 0.4);
   transition: transform .3s ease, box-shadow .3s ease;
 }
 .video-card:hover {
@@ -893,9 +894,9 @@ main { flex: 1; }
   border: none;
 }
 
-/* ─── CTA BANNER ─────────────────────────────────────────────────────────── */
+/* â”€â”€â”€ CTA BANNER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .cta-banner {
-  background: linear-gradient(135deg, var(--teal-dark) 0%, #006d65 100%);
+  background: var(--teal);
   padding: 6rem 0;
   text-align: center;
   position: relative;
@@ -908,11 +909,12 @@ main { flex: 1; }
   background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 .cta-banner__inner { position: relative; z-index: 1; }
-.cta-banner h2 { color: var(--white); font-size: clamp(1.75rem, 3vw, 2.75rem); margin-bottom: 1rem; }
-.cta-banner p  { color: rgba(255,255,255,.75); font-size: 1.05rem; margin-bottom: 2.5rem; max-width: 520px; margin-left: auto; margin-right: auto; }
+.cta-banner h2 { color: var(--white); font-size: clamp(1.75rem, 3vw, 2.75rem); margin-bottom: 1rem; text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+.cta-banner p  { color: var(--white); font-size: 1.05rem; margin-bottom: 2.5rem; max-width: 520px; margin-left: auto; margin-right: auto; opacity: 0.9; }
+
 .cta-banner__actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
 
-/* ─── PAGE HEADER ────────────────────────────────────────────────────────── */
+/* â”€â”€â”€ PAGE HEADER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .page-header {
   background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 100%);
   padding: 5rem 0 4.5rem;
@@ -935,7 +937,7 @@ main { flex: 1; }
 .page-header p  { color: rgba(255,255,255,.8); font-size: 1.1rem; line-height: 1.7; }
 .page-header + .section { padding-top: 2.25rem; }
 
-/* ─── ABOUT PAGE ─────────────────────────────────────────────────────────── */
+/* â”€â”€â”€ ABOUT PAGE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .dr-bio { display: grid; grid-template-columns: 380px 1fr; gap: 4rem; align-items: start; }
 .dr-bio__photo {
   position: sticky;
@@ -990,7 +992,7 @@ main { flex: 1; }
 .community-card h4 { color: var(--teal-dark); margin-bottom: .5rem; }
 .community-card p { font-size: .9rem; color: var(--ink-soft); line-height: 1.65; }
 
-/* ─── SERVICES PAGE ──────────────────────────────────────────────────────── */
+/* â”€â”€â”€ SERVICES PAGE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .services-list { display: flex; flex-direction: column; gap: 4rem; }
 .service-row {
   display: grid;
@@ -1011,7 +1013,7 @@ main { flex: 1; }
 .service-row__body h2 { font-size: 1.65rem; margin-bottom: .85rem; color: var(--ink); }
 .service-row__body p  { color: var(--ink-soft); line-height: 1.75; font-size: .97rem; margin-bottom: 1.5rem; }
 
-/* ─── PATIENT INFO ───────────────────────────────────────────────────────── */
+/* â”€â”€â”€ PATIENT INFO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
 .doc-card {
   display: flex;
@@ -1129,7 +1131,7 @@ main { flex: 1; }
   font-size: 1rem;
 }
 
-/* ─── CONTACT / LOCATIONS ────────────────────────────────────────────────── */
+/* â”€â”€â”€ CONTACT / LOCATIONS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .locations-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
 .location-card {
   border: 1px solid var(--border);
@@ -1193,7 +1195,7 @@ main { flex: 1; }
   font-weight: 400;
 }
 
-/* ─── FORMS ──────────────────────────────────────────────────────────────── */
+/* â”€â”€â”€ FORMS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .form-group { display: flex; flex-direction: column; gap: .4rem; }
 .form-group.full { grid-column: 1 / -1; }
@@ -1217,7 +1219,7 @@ main { flex: 1; }
 .form-group textarea:focus { border-color: var(--teal); }
 .form-group textarea { resize: vertical; min-height: 110px; }
 
-/* ─── REFERRING DOCTORS ──────────────────────────────────────────────────── */
+/* â”€â”€â”€ REFERRING DOCTORS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .referral-wrap {
   max-width: 720px;
   margin: 0 auto;
@@ -1240,18 +1242,24 @@ main { flex: 1; }
 }
 .form-section-title:first-of-type { margin-top: 0; }
 
-/* ─── FOOTER ─────────────────────────────────────────────────────────────── */
+/* â”€â”€â”€ FOOTER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .footer {
-  background: var(--navy);
+  background: var(--teal);
+  position: relative;
+  overflow: hidden;
   color: rgba(255,255,255,.7);
   padding: 5rem 0 0;
 }
-.footer a {
-  color: #f7fafc;
-  text-decoration: none;
-  transition: color .2s ease, opacity .2s ease;
+.footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
 }
 .footer__grid {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1.4fr;
   gap: 3rem;
@@ -1329,6 +1337,44 @@ main { flex: 1; }
 .footer__hours li span:last-child {
   color: rgba(255,255,255,.92);
 }
+/* â”€â”€â”€ MAPS SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.maps-section {
+  background: var(--gold);
+  padding: 3rem 0;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.maps-section__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.map-item {
+  position: relative;
+  overflow: hidden;
+}
+.map-info {
+  background: var(--gold);
+  color: var(--white);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+}
+.map-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--white);
+}
+.map-info p {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .maps-section__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .footer__bottom {
   padding: 1.5rem 0;
   display: flex;
@@ -1338,7 +1384,7 @@ main { flex: 1; }
   color: rgba(255,255,255,.82);
 }
 
-/* ─── MOBILE STICKY CTA ──────────────────────────────────────────────────── */
+/* â”€â”€â”€ MOBILE STICKY CTA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .sticky-cta {
   display: none;
   position: fixed;
@@ -1356,7 +1402,7 @@ main { flex: 1; }
 .sticky-cta span { font-size: .88rem; font-weight: 600; }
 .sticky-cta a  { background: var(--gold); color: var(--white); padding: .5rem 1.25rem; border-radius: 50px; font-size: .85rem; font-weight: 700; }
 
-/* ─── UTILITIES ──────────────────────────────────────────────────────────── */
+/* â”€â”€â”€ UTILITIES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .text-teal  { color: var(--teal); }
 .text-gold  { color: var(--gold); }
 .text-white { color: var(--white); }
@@ -1367,7 +1413,7 @@ main { flex: 1; }
 .mb-4 { margin-bottom: 2rem; }
 .flex-center { display: flex; align-items: center; gap: .5rem; }
 
-/* ─── ANIMATIONS ─────────────────────────────────────────────────────────── */
+/* â”€â”€â”€ ANIMATIONS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -1376,7 +1422,7 @@ main { flex: 1; }
 .fade-up-2 { animation: fadeUp .6s .15s ease both; }
 .fade-up-3 { animation: fadeUp .6s .3s ease both; }
 
-/* ─── SCROLL ANIMATIONS ──────────────────────────────────────────────────── */
+/* â”€â”€â”€ SCROLL ANIMATIONS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @keyframes slideInLeft {
   from { opacity: 0; transform: translateX(-32px); }
   to { opacity: 1; transform: translateX(0); }
@@ -1416,14 +1462,14 @@ main { flex: 1; }
   }
 }
 
-/* ─── RESPONSIVE ─────────────────────────────────────────────────────────── */
+/* â”€â”€â”€ RESPONSIVE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media (max-width: 1024px) {
   .hero__content      { grid-template-columns: 1fr; }
   .hero__card         { display: none; }
   .about-split        { grid-template-columns: 1fr; gap: 3rem; }
   .about-split__img   { max-width: 480px; }
   .services-grid      { grid-template-columns: repeat(2, 1fr); }
-  .footer__grid       { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  .footer__grid       { grid-template-columns: 1fr; gap: 2.5rem; }
   .footer__brand      { grid-column: 1 / -1; }
   .footer__socials    { gap: .6rem; }
   .dr-bio             { grid-template-columns: 1fr; }
