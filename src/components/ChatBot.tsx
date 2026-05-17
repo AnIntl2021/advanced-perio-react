@@ -3,7 +3,7 @@ import botIcon from '../assets/bot-icon.png';
 import { SERVICES } from '../utils/data';
 import { PAYMENT_PORTAL_URL } from '../utils/constants';
 
-type Step = 'greeting' | 'name' | 'email' | 'phone' | 'service' | 'date' | 'complete';
+type Step = 'greeting' | 'email' | 'service' | 'contact_info' | 'date' | 'complete';
 
 interface ChatOption {
   label: string;
@@ -23,10 +23,9 @@ export default function ChatBot() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState('');
   const [bookingData, setBookingData] = useState({
-    name: '',
     email: '',
-    phone: '',
     service: '',
+    contactInfo: '',
     date: ''
   });
   
@@ -67,30 +66,24 @@ export default function ChatBot() {
   const processNextStep = (text: string) => {
     switch (step) {
       case 'greeting':
-        addBotMessage("I'd be happy to help you book an appointment! First, what is your full name?");
-        setStep('name');
-        break;
-
-      case 'name':
-        setBookingData(prev => ({ ...prev, name: text }));
-        addBotMessage(`Nice to meet you, ${text.split(' ')[0]}! What is your email address? (We'll send your booking confirmation here)`);
+        addBotMessage("Nice to meet you! What is your email address? (We'll send your booking confirmation here)");
         setStep('email');
         break;
 
       case 'email':
         setBookingData(prev => ({ ...prev, email: text }));
-        addBotMessage("Great. And what is a good phone number where we can reach you?");
-        setStep('phone');
-        break;
-
-      case 'phone':
-        setBookingData(prev => ({ ...prev, phone: text }));
-        addBotMessage("Which service are you interested in today?", SERVICES.map(s => s.title));
+        addBotMessage("Which service are you interested in today?", SERVICES.map(s => s.title === 'Gum Contouring' ? 'Toothache' : s.title));
         setStep('service');
         break;
 
       case 'service':
         setBookingData(prev => ({ ...prev, service: text }));
+        addBotMessage("To schedule you, Please provide us with your full name , DOB, and phone number and we will contact you ASAP");
+        setStep('contact_info');
+        break;
+
+      case 'contact_info':
+        setBookingData(prev => ({ ...prev, contactInfo: text }));
         addBotMessage("Please select an available time slot for your visit:", [
           { label: "9:30 AM - 10:00 AM" },
           { label: "10:00 AM - 10:30 AM" },
@@ -106,7 +99,7 @@ export default function ChatBot() {
 
       case 'date':
         setBookingData(prev => ({ ...prev, date: text }));
-        addBotMessage(`Thank you, ${bookingData.name.split(' ')[0]}! I've sent your request for ${bookingData.service} during the ${text} slot to our team. We'll call you shortly at ${bookingData.phone} to finalize everything. 🦷`);
+        addBotMessage(`Thank you! I've sent your request for ${bookingData.service} during the ${text} slot to our team. We will contact you ASAP to finalize everything. 🦷`);
         
         setTimeout(() => {
           addBotMessage("Would you like to pay your bill or a deposit online now?", [
@@ -123,10 +116,10 @@ export default function ChatBot() {
         }
         break;
       
-      default:
-        break;
-    }
-  };
+        default:
+          break;
+      }
+    };
 
   return (
     <div className={`chatbot-container ${isOpen ? 'open' : ''}`}>

@@ -65,7 +65,6 @@ export default function About() {
               </h1>
               <div className="about-split__creds" style={{ marginTop: 0, marginBottom: '1.5rem' }}>
                 <span className="cred-tag">Board-Certified Periodontist</span>
-                <span className="cred-tag">Dental Implant Specialist</span>
                 <span className="cred-tag">Oral Plastic Surgery</span>
               </div>
 
@@ -136,8 +135,8 @@ export default function About() {
                   <h4>Academic &amp; Professional Presentations</h4>
                   <p>
                     Dr. Al regularly presents at dental conferences and continuing education
-                    events, sharing expertise in dental implants, periodontal surgery,
-                    and laser therapy with the broader dental community.
+                    events, sharing expertise in dental implants and periodontal surgery
+                    with the broader dental community.
                   </p>
                 </div>
               </div>

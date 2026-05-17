@@ -203,7 +203,6 @@ export default function Home() {
               <h2 className="section-title">Dr. Houssam Alghadban, DDS</h2>
               <div className="about-split__creds">
                 <span className="cred-tag">Board-Certified Periodontist</span>
-                <span className="cred-tag">Dental Implant Specialist</span>
                 <span className="cred-tag">Adjunct Professor – UTHSA</span>
               </div>
               <p className="section-lead" style={{ maxWidth: '100%' }}>
