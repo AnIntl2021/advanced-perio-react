@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import botIcon from '../assets/bot-icon.png';
 import { SERVICES } from '../utils/data';
 import { PAYMENT_PORTAL_URL } from '../utils/constants';
+import { OpenDentalService } from '../services/openDentalService';
 
 type Step = 'greeting' | 'email' | 'service' | 'contact_info' | 'date' | 'complete';
 
@@ -98,7 +99,31 @@ export default function ChatBot() {
         break;
 
       case 'date':
-        setBookingData(prev => ({ ...prev, date: text }));
+        setBookingData(prev => {
+          const updated = { ...prev, date: text };
+          
+          // Parse: "full name , DOB, and phone number"
+          const parts = updated.contactInfo.split(',').map(p => p.trim());
+          const fullName = parts[0] || 'Web Patient';
+          const dob = parts[1] || '1990-01-01';
+          const phone = parts[2] || '210-332-5335';
+          
+          // Trigger the Open Dental API sync in the background
+          OpenDentalService.bookAppointment({
+            office: 'schertz', // Defaults to Schertz Office, can be configured
+            fullName,
+            dob,
+            email: updated.email,
+            phone,
+            service: updated.service,
+            dateTime: text
+          }).then(response => {
+            console.log('%c[Open Dental Sync Result]', 'color: #00615a; font-weight: bold;', response);
+          });
+
+          return updated;
+        });
+
         addBotMessage(`Thank you! I've sent your request for ${bookingData.service} during the ${text} slot to our team. We will contact you ASAP to finalize everything. 🦷`);
         
         setTimeout(() => {

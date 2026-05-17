@@ -1,3 +1,6 @@
+import React, { useState } from 'react';
+import { OpenDentalService } from '../services/openDentalService';
+
 const LOCATIONS = [
   {
     name:    'San Antonio Office',
@@ -26,7 +29,67 @@ const HOURS = [
 ];
 
 export default function Contact() {
-  const handleChange = () => {};
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    phone: '',
+    email: '',
+    subject: 'Appointment Request',
+    office: 'huebner', // Default to Huebner (San Antonio)
+    message: ''
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitResult, setSubmitResult] = useState<{ success: boolean; message: string } | null>(null);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitResult(null);
+
+    try {
+      const response = await OpenDentalService.bookAppointment({
+        office: formData.office as 'schertz' | 'huebner',
+        fullName: `${formData.firstName} ${formData.lastName}`,
+        dob: '1990-01-01', // Default DOB for contact form
+        email: formData.email,
+        phone: formData.phone,
+        service: formData.subject,
+        dateTime: `Web Message Request - Subject: ${formData.subject}. Message: ${formData.message}`
+      });
+
+      setSubmitResult({
+        success: response.success,
+        message: response.success 
+          ? 'Thank you! Your message has been sent and synchronized with Open Dental.'
+          : response.message
+      });
+
+      if (response.success) {
+        setFormData({
+          firstName: '',
+          lastName: '',
+          phone: '',
+          email: '',
+          subject: 'Appointment Request',
+          office: 'huebner',
+          message: ''
+        });
+      }
+    } catch (error: any) {
+      setSubmitResult({
+        success: false,
+        message: error.message || 'Failed to submit. Please try again.'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div>
@@ -161,28 +224,49 @@ export default function Contact() {
               <span className="eyebrow">Message Us</span>
               <h2>Send a Message</h2>
               <p>We&rsquo;ll respond within one business day.</p>
-              <form onSubmit={e => e.preventDefault()}>
+              
+              {submitResult && (
+                <div style={{
+                  padding: '1rem',
+                  borderRadius: '6px',
+                  marginBottom: '1.5rem',
+                  backgroundColor: submitResult.success ? 'rgba(0, 97, 90, 0.1)' : 'rgba(219, 68, 85, 0.1)',
+                  color: submitResult.success ? 'var(--teal-dark)' : '#db4455',
+                  border: `1px solid ${submitResult.success ? 'var(--teal)' : '#db4455'}`,
+                  fontSize: '0.95rem'
+                }}>
+                  {submitResult.message}
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit}>
                 <div className="form-grid">
                   <div className="form-group">
                     <label htmlFor="firstName">First Name *</label>
-                    <input id="firstName" name="firstName" type="text" required onChange={handleChange} />
+                    <input id="firstName" name="firstName" type="text" required value={formData.firstName} onChange={handleChange} />
                   </div>
                   <div className="form-group">
                     <label htmlFor="lastName">Last Name *</label>
-                    <input id="lastName" name="lastName" type="text" required onChange={handleChange} />
+                    <input id="lastName" name="lastName" type="text" required value={formData.lastName} onChange={handleChange} />
                   </div>
                   <div className="form-group">
                     <label htmlFor="phone">Phone *</label>
-                    <input id="phone" name="phone" type="tel" required onChange={handleChange} />
+                    <input id="phone" name="phone" type="tel" required value={formData.phone} onChange={handleChange} />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="email">Email</label>
-                    <input id="email" name="email" type="email" onChange={handleChange} />
+                    <label htmlFor="email">Email *</label>
+                    <input id="email" name="email" type="email" required value={formData.email} onChange={handleChange} />
+                  </div>
+                  <div className="form-group full">
+                    <label htmlFor="office">Preferred Location *</label>
+                    <select id="office" name="office" required value={formData.office} onChange={handleChange}>
+                      <option value="huebner">San Antonio Office (Huebner)</option>
+                      <option value="schertz">Schertz Office</option>
+                    </select>
                   </div>
                   <div className="form-group full">
                     <label htmlFor="subject">Subject</label>
-                    <select id="subject" name="subject" onChange={handleChange}>
-                      <option value="">Select a topic</option>
+                    <select id="subject" name="subject" value={formData.subject} onChange={handleChange}>
                       <option>Appointment Request</option>
                       <option>New Patient Inquiry</option>
                       <option>Insurance Question</option>
@@ -192,11 +276,11 @@ export default function Contact() {
                   </div>
                   <div className="form-group full">
                     <label htmlFor="message">Message *</label>
-                    <textarea id="message" name="message" rows="4" required onChange={handleChange} placeholder="How can we help you?" />
+                    <textarea id="message" name="message" rows="4" required value={formData.message} onChange={handleChange} placeholder="How can we help you?" />
                   </div>
                 </div>
-                <button type="submit" className="btn btn-primary" style={{ marginTop: '1rem', width: '100%', justifyContent: 'center' }}>
-                  <i className="fas fa-paper-plane"></i> Send Message
+                <button type="submit" disabled={isSubmitting} className="btn btn-primary" style={{ marginTop: '1rem', width: '100%', justifyContent: 'center' }}>
+                  <i className="fas fa-paper-plane"></i> {isSubmitting ? 'Sending Request...' : 'Send Message'}
                 </button>
               </form>
             </div>
