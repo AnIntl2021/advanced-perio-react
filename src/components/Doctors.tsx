@@ -16,7 +16,7 @@ const REFERRAL_REASONS = [
   'Bone Grafting',
   'Gum Contouring',
   'Implant Supported Dentures',
-  'LANAP Laser Treatment',
+  'Dental Endoscopy (PerioView)',
   'Consultation Only',
   'Other',
 ];
@@ -151,7 +151,7 @@ export default function Doctors() {
                 </div>
                 <div className="form-group full">
                   <label htmlFor="notes">Clinical Notes / Additional Information</label>
-                  <textarea id="notes" name="notes" rows="4" placeholder="Please describe the patient's condition, relevant history, or any special instructions..." onChange={handleChange} />
+                  <textarea id="notes" name="notes" rows={4} placeholder="Please describe the patient's condition, relevant history, or any special instructions..." onChange={handleChange} />
                 </div>
               </div>
 

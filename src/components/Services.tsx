@@ -9,7 +9,7 @@ import svcDentures     from '../assets/dentures.webp';
 import svcSedation     from '../assets/sedation_dentistry.webp';
 import svcCrown        from '../assets/crown_lengthening.webp';
 import svcWisdom       from '../assets/wisdom_tooth_removal.webp';
-import svcLaser        from '../assets/laser_dental.webp';
+import svcPerioView    from '../assets/perioview_endoscope.png';
 
 const SERVICES = [
   {
@@ -73,10 +73,11 @@ const SERVICES = [
     reverse: true,
   },
   {
-    img: svcLaser,
-    title: 'Laser Dentistry (LANAP)',
-    desc: 'LANAP — Laser-Assisted New Attachment Procedure — is the only FDA-cleared laser protocol for true regeneration of tissues lost to gum disease. It targets disease-causing bacteria while preserving healthy tissue, resulting in less pain, swelling, and recovery time than traditional surgery.',
+    img: svcPerioView,
+    title: 'PerioView® Dental Endoscope',
+    desc: 'At the heart of PerioView’s imaging power is a precision-engineered digital camera just 1mm in diameter, designed to navigate comfortably into the periodontal pocket. This advanced fiber system combines high-intensity illumination and up to 100x magnification to provide crystal-clear, real-time imaging on an HD touchscreen monitor. An integrated water delivery system continuously flushes debris, enabling Dr. Al to visualize and treat subgingival areas with unmatched precision and minimal patient discomfort.',
     reverse: false,
+    externalLink: 'https://perio-view.com',
   },
 ];
 
@@ -98,16 +99,23 @@ export default function Services() {
       <section className="section">
         <div className="container">
           <div className="services-list">
-            {SERVICES.map(({ img, title, desc, reverse }) => (
+            {SERVICES.map(({ img, title, desc, reverse, externalLink }) => (
               <div key={title} className={`service-row${reverse ? ' reverse' : ''}`}>
                 <img src={img} alt={title} className="service-row__img" />
                 <div className="service-row__body">
                   <span className="eyebrow">Our Service</span>
                   <h2>{title}</h2>
                   <p>{desc}</p>
-                  <Link to="/contact-us" className="btn btn-primary btn-sm">
-                    Schedule Consultation <i className="fas fa-arrow-right"></i>
-                  </Link>
+                  <div style={{ display: 'flex', gap: '0.75rem', marginTop: '1rem', flexWrap: 'wrap' }}>
+                    <Link to="/contact-us" className="btn btn-primary btn-sm">
+                      Schedule Consultation <i className="fas fa-arrow-right"></i>
+                    </Link>
+                    {externalLink && (
+                      <a href={externalLink} target="_blank" rel="noopener noreferrer" className="btn btn-outline btn-sm" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+                        Visit Website <i className="fas fa-external-link-alt"></i>
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             ))}

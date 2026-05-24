@@ -2,10 +2,9 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import heroVideo   from '../assets/hero-video.mp4';
 import drPhoto     from '../assets/dr-photo.jpg';
-import drFamily2   from '../assets/dr-family-2.jpeg';
 import smileWoman  from '../assets/smile-woman.jpg';
 import { SERVICES, MEMBERSHIPS } from '../utils/data';
-import { PHONE_NUMBER, PHONE_URI, GOOGLE_MAPS_API_KEY } from '../utils/constants';
+import { PHONE_NUMBER, PHONE_URI } from '../utils/constants';
 
 function VideoCard({ videoId, title, className }: { videoId: string, title: string, className?: string }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -89,7 +88,7 @@ export default function Home() {
                   <option>Wisdom Tooth Removal</option>
                   <option>Other</option>
                 </select>
-                <textarea placeholder="Any additional notes (optional)" rows="3" />
+                <textarea placeholder="Any additional notes (optional)" rows={3} />
                 <button type="submit" className="btn btn-gold" style={{ justifyContent: 'center' }}>
                   Send Request <i className="fas fa-arrow-right"></i>
                 </button>
@@ -216,7 +215,7 @@ export default function Home() {
                 <li><i className="fas fa-check-circle"></i> Diplomate – American Board of Periodontology (ABP)</li>
                 <li><i className="fas fa-check-circle"></i> Member – American Dental Association (ADA)</li>
                 <li><i className="fas fa-check-circle"></i> Adjunct Professor at UT Health San Antonio School of Dentistry</li>
-                <li><i className="fas fa-check-circle"></i> Minimally invasive laser therapy (LANAP certified)</li>
+                <li><i className="fas fa-check-circle"></i> Minimally invasive procedure by using <a href="https://perio-view.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--teal)', fontWeight: 'bold', textDecoration: 'underline' }}>PerioView® Dental Endoscope</a></li>
               </ul>
               <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
                 <Link to="/about" className="btn btn-primary">

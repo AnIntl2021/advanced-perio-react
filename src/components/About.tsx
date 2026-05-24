@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import drPhoto       from '../assets/dr-photo.jpg';
 import drFamily2     from '../assets/dr-family-2.jpeg';
 import drDds         from '../assets/dr-dds.png';
 import drCommunity   from '../assets/dr-community.jpg';
@@ -34,9 +33,6 @@ export default function About() {
         <div className="container page-header__inner">
           <span className="eyebrow" style={{ color: 'rgba(255,255,255,.7)' }}>Our Practice</span>
           <h1>About Advanced Periodontics</h1>
-          <p>
-            Board-certified periodontal and implant care led by Dr. Houssam Alghadban.
-          </p>
         </div>
       </section>
 
@@ -82,7 +78,7 @@ export default function About() {
               <ul className="about-split__list">
                 <li><i className="fas fa-check-circle" style={{ color: 'var(--gold)' }}></i> Regeneration</li>
                 <li><i className="fas fa-check-circle" style={{ color: 'var(--gold)' }}></i> Dental Implants</li>
-                <li><i className="fas fa-check-circle" style={{ color: 'var(--gold)' }}></i> Laser Surgery</li>
+                <li><i className="fas fa-check-circle" style={{ color: 'var(--gold)' }}></i> Dental Endoscopy (PerioView®)</li>
                 <li><i className="fas fa-check-circle" style={{ color: 'var(--gold)' }}></i> Esthetic Plastic Periodontal Surgery</li>
                 <li><i className="fas fa-check-circle" style={{ color: 'var(--gold)' }}></i> Gum Disease</li>
                 <li><i className="fas fa-check-circle" style={{ color: 'var(--gold)' }}></i> Wisdom Teeth</li>

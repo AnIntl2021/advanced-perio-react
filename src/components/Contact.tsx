@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { OpenDentalService } from '../services/openDentalService';
+import { sendContactEmail } from '../services/emailService';
 
 const LOCATIONS = [
   {
@@ -62,6 +63,13 @@ export default function Contact() {
         service: formData.subject,
         dateTime: `Web Message Request - Subject: ${formData.subject}. Message: ${formData.message}`
       });
+
+      // Send contact email notification to admin via EmailJS
+      try {
+        await sendContactEmail(formData);
+      } catch (emailErr) {
+        console.error('Failed to send contact email notification:', emailErr);
+      }
 
       setSubmitResult({
         success: response.success,
@@ -163,7 +171,7 @@ export default function Contact() {
                   <iframe
                     src={mapSrc}
                     title={`Map — ${name}`}
-                    allowFullScreen=""
+                    allowFullScreen={true}
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                   />
@@ -175,12 +183,6 @@ export default function Contact() {
                       <span key={i}>{line}<br /></span>
                     ))}
                   </address>
-                  <p className="location-card__hours">
-                    <strong>Hours:</strong><br />
-                    Mon–Thu: 8:30 AM – 5:00 PM<br />
-                    Fri: 8:00 AM – 3:00 PM<br />
-                    Sat–Sun: Closed
-                  </p>
                   <div className="location-card__actions">
                     <a href={`tel:${phone.replace(/\D/g, '')}`} className="btn btn-primary btn-sm">
                       <i className="fas fa-phone-alt"></i> {phone}
@@ -276,7 +278,7 @@ export default function Contact() {
                   </div>
                   <div className="form-group full">
                     <label htmlFor="message">Message *</label>
-                    <textarea id="message" name="message" rows="4" required value={formData.message} onChange={handleChange} placeholder="How can we help you?" />
+                    <textarea id="message" name="message" rows={4} required value={formData.message} onChange={handleChange} placeholder="How can we help you?" />
                   </div>
                 </div>
                 <button type="submit" disabled={isSubmitting} className="btn btn-primary" style={{ marginTop: '1rem', width: '100%', justifyContent: 'center' }}>
