@@ -22,6 +22,10 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const mobileNavLinks = [
+    ...NAV_LINKS.filter(link => link.to === '/'),
+    ...NAV_LINKS.filter(link => link.to !== '/')
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -121,7 +125,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <div className={`mobile-menu${menuOpen ? ' open' : ''}`}>
-        {NAV_LINKS.map(({ to, label, hash: linkHash, isExternal }) => {
+        {mobileNavLinks.map(({ to, label, hash: linkHash, isExternal }) => {
           if (label === 'Services') {
             return (
               <div key={to} style={{ display: 'flex', flexDirection: 'column' }}>
