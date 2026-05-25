@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import logoImg from '../assets/logo-main.webp';
 
 const HOURS = [
   ['Mon', '8:30 AM – 5:00 PM'],
@@ -19,11 +18,6 @@ export default function Footer() {
           <div className="footer__grid">
             {/* Brand */}
             <div className="footer__brand">
-              <img src={logoImg} alt="Advanced Periodontics & Dental Implants" />
-              <p>
-                Board-Certified Periodontists dedicated to providing the highest quality
-                periodontal and dental implant care in a comfortable, welcoming environment.
-              </p>
               <div className="footer__socials">
                 <a href="https://www.facebook.com/Advancedperiosa" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                   <i className="fab fa-facebook-f"></i>

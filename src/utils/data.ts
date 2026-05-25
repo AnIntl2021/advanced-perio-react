@@ -6,6 +6,8 @@ import svcDeepCleaning from '../assets/deep_cleaning.webp';
 import svcGumGrafting from '../assets/gum_grafting.webp';
 import svcContouring from '../assets/gum_contouring.webp';
 import svcSedation from '../assets/sedation_dentistry.webp';
+import svcJaw from '../assets/jaw_bone_graft.png';
+import svcExposeBond from '../assets/expose_bond.png';
 
 import logoAbpCert from '../assets/logo-abp-certified.png';
 import logoAbp from '../assets/logo-abp.png';
@@ -18,12 +20,14 @@ import logoAap from '../assets/logo-aap.png';
 import logoTsp from '../assets/logo-tsp.png';
 
 export const SERVICES: Service[] = [
-  { img: svcImplants,     icon: 'fas fa-tooth',         title: 'Dental Implants',      desc: 'Permanent, natural-looking tooth replacements using the latest implant systems for single teeth to full-mouth restoration.', to: '/services' },
-  { img: svcGumDisease,   icon: 'fas fa-heartbeat',     title: 'Gum Disease Treatment', desc: 'Comprehensive care for all stages of periodontal disease, including scaling, root planing, and laser-assisted therapy.', to: '/services' },
-  { img: svcDeepCleaning, icon: 'fas fa-shield-alt',    title: 'Deep Cleaning',         desc: 'Professional scaling and root planing to remove tartar and bacteria below the gumline and restore periodontal health.', to: '/services' },
-  { img: svcGumGrafting,  icon: 'fas fa-procedures',    title: 'Gum Grafting',          desc: 'Correct gum recession and protect exposed tooth roots with advanced soft-tissue grafting techniques.', to: '/services' },
-  { img: svcContouring,   icon: 'fas fa-magic',         title: 'Gum Contouring',        desc: 'Reshape your gum line for a more balanced, attractive smile through precise esthetic periodontal surgery.', to: '/services' },
-  { img: svcSedation,     icon: 'fas fa-spa',           title: 'Sedation Dentistry',    desc: 'Relax comfortably during your procedure with our safe sedation options, designed for anxious patients.', to: '/services' },
+  { img: svcImplants,     icon: 'fas fa-tooth',         title: 'Dental Implants',      desc: 'Permanent, natural-looking tooth replacements using the latest implant systems for single teeth to full-mouth restoration.', to: '/services/dental-implants' },
+  { img: svcGumDisease,   icon: 'fas fa-heartbeat',     title: 'Gum Disease Treatment', desc: 'Comprehensive care for all stages of periodontal disease, including scaling, root planing, and laser-assisted therapy.', to: '/services/gum-disease-treatment' },
+  { img: svcDeepCleaning, icon: 'fas fa-shield-alt',    title: 'Deep Cleaning',         desc: 'Professional scaling and root planing to remove tartar and bacteria below the gumline and restore periodontal health.', to: '/services/deep-cleaning' },
+  { img: svcGumGrafting,  icon: 'fas fa-procedures',    title: 'Gum Grafting',          desc: 'Correct gum recession and protect exposed tooth roots with advanced soft-tissue grafting techniques.', to: '/services/gum-grafting' },
+  { img: svcContouring,   icon: 'fas fa-magic',         title: 'Gum Contouring',        desc: 'Reshape your gum line for a more balanced, attractive smile through precise esthetic periodontal surgery.', to: '/services/gum-contouring' },
+  { img: svcSedation,     icon: 'fas fa-spa',           title: 'Sedation Dentistry',    desc: 'Relax comfortably during your procedure with our safe sedation options, designed for anxious patients.', to: '/services/sedation-dentistry' },
+  { img: svcJaw,          icon: 'fas fa-shield-virus',  title: 'Jaw Bone Augmentation & Sinus Lift', desc: 'Advanced procedures to address bone loss and provide structural support for dental implant placement.', to: '/jaw-bone-augmentation-sinus-lift' },
+  { img: svcExposeBond,   icon: 'fas fa-link',          title: 'Expose & Bond Procedure', desc: 'Surgical exposure and orthodontic bonding to guide impacted teeth into proper alignment.', to: '/services/expose-bond-procedure' },
 ];
 
 export const MEMBERSHIPS: Membership[] = [

@@ -5,6 +5,7 @@ import drPhoto     from '../assets/dr-photo.jpg';
 import smileWoman  from '../assets/smile-woman.jpg';
 import { SERVICES, MEMBERSHIPS } from '../utils/data';
 import { PHONE_NUMBER, PHONE_URI } from '../utils/constants';
+import { sendCallbackEmail } from '../services/emailService';
 
 function VideoCard({ videoId, title, className }: { videoId: string, title: string, className?: string }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -28,6 +29,48 @@ function VideoCard({ videoId, title, className }: { videoId: string, title: stri
 const SCROLLING_MEMBERSHIPS = [...MEMBERSHIPS, ...MEMBERSHIPS];
 
 export default function Home() {
+  const [formData, setFormData] = useState({
+    fullName: '',
+    phone: '',
+    email: '',
+    service: '',
+    notes: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitResult, setSubmitResult] = useState<{ success: boolean; message: string } | null>(null);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitResult(null);
+    try {
+      await sendCallbackEmail(formData);
+      setSubmitResult({
+        success: true,
+        message: 'Request submitted successfully!'
+      });
+      setFormData({
+        fullName: '',
+        phone: '',
+        email: '',
+        service: '',
+        notes: ''
+      });
+    } catch (error: any) {
+      setSubmitResult({
+        success: false,
+        message: error.message || 'Failed to submit request. Please try again.'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div>
       {/* ── HERO ─────────────────────────────────────────────────── */}
@@ -77,20 +120,75 @@ export default function Home() {
                 <i className="fas fa-calendar-alt"></i>
                 Request an Appointment
               </p>
-              <form onSubmit={e => e.preventDefault()}>
-                <input type="text"  placeholder="Full Name" required />
-                <input type="tel"   placeholder="Phone Number" required />
-                <input type="email" placeholder="Email Address" required />
-                <select>
+              {submitResult && (
+                <div style={{
+                  padding: '0.8rem',
+                  borderRadius: '6px',
+                  marginBottom: '1rem',
+                  backgroundColor: submitResult.success ? 'rgba(0, 97, 90, 0.15)' : 'rgba(219, 68, 85, 0.15)',
+                  color: submitResult.success ? 'var(--teal-dark)' : '#db4455',
+                  border: `1px solid ${submitResult.success ? 'var(--teal)' : '#db4455'}`,
+                  fontSize: '0.88rem',
+                  lineHeight: '1.4'
+                }}>
+                  {submitResult.message}
+                </div>
+              )}
+              <form onSubmit={handleSubmit}>
+                <input 
+                  type="text" 
+                  name="fullName"
+                  placeholder="Full Name" 
+                  required 
+                  value={formData.fullName} 
+                  onChange={handleChange} 
+                  disabled={isSubmitting}
+                />
+                <input 
+                  type="tel" 
+                  name="phone"
+                  placeholder="Phone Number" 
+                  required 
+                  value={formData.phone} 
+                  onChange={handleChange} 
+                  disabled={isSubmitting}
+                />
+                <input 
+                  type="email" 
+                  name="email"
+                  placeholder="Email Address" 
+                  required 
+                  value={formData.email} 
+                  onChange={handleChange} 
+                  disabled={isSubmitting}
+                />
+                <select 
+                  name="service"
+                  value={formData.service} 
+                  onChange={handleChange} 
+                  disabled={isSubmitting}
+                >
                   <option value="">Select a Service</option>
-                  {SERVICES.map(s => <option key={s.title}>{s.title}</option>)}
-                  <option>Crown Lengthening</option>
-                  <option>Wisdom Tooth Removal</option>
-                  <option>Other</option>
+                  {SERVICES.map(s => <option key={s.title} value={s.title}>{s.title}</option>)}
+                  <option value="Crown Lengthening">Crown Lengthening</option>
+                  <option value="Wisdom Tooth Removal">Wisdom Tooth Removal</option>
+                  <option value="Other">Other</option>
                 </select>
-                <textarea placeholder="Any additional notes (optional)" rows={3} />
-                <button type="submit" className="btn btn-gold" style={{ justifyContent: 'center' }}>
-                  Send Request <i className="fas fa-arrow-right"></i>
+                <textarea 
+                  name="notes"
+                  placeholder="Any additional notes (optional)" 
+                  rows={3} 
+                  value={formData.notes} 
+                  onChange={handleChange} 
+                  disabled={isSubmitting}
+                />
+                <button 
+                  type="submit" 
+                  disabled={isSubmitting} 
+                  className="btn btn-gold" 
+                  style={{ justifyContent: 'center', width: '100%' }}
+                >
+                  {isSubmitting ? 'Sending...' : 'Send Request'} <i className="fas fa-arrow-right"></i>
                 </button>
               </form>
             </div>
@@ -112,30 +210,60 @@ export default function Home() {
               <span className="home-jump__icon"><i className="fas fa-teeth-open"></i></span>
               <div>
                 <h4>All Services</h4>
-                <p>Implants, gum care, and laser therapy</p>
+                <p>Implants, gum care, and dental endoscopy</p>
               </div>
             </Link>
-            <Link className="home-jump__card" to="/#home-patient">
+            <Link className="home-jump__card" to="/patient-info">
               <span className="home-jump__icon"><i className="fas fa-clipboard-list"></i></span>
               <div>
                 <h4>Patient Info</h4>
-                <p>First-visit checklist and insurance</p>
+                <p>First-visit checklist and forms</p>
               </div>
             </Link>
-            <Link className="home-jump__card" to="/#home-referring">
+            <Link className="home-jump__card" to="/referring-doctors">
               <span className="home-jump__icon"><i className="fas fa-user-nurse"></i></span>
               <div>
                 <h4>Referring Doctors</h4>
                 <p>Secure referral workflow</p>
               </div>
             </Link>
-            <Link className="home-jump__card" to="/#home-contact">
+            <Link className="home-jump__card" to="/contact-us">
               <span className="home-jump__icon"><i className="fas fa-map-marked-alt"></i></span>
               <div>
-                <h4>Contact & Locations</h4>
+                <h4>Contact &amp; Locations</h4>
                 <p>San Antonio and Schertz offices</p>
               </div>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── WELCOME SECTION ───────────────────────────────────────── */}
+      <section className="section" style={{ background: 'var(--off-white)', borderBottom: '1px solid var(--border)' }}>
+        <div className="container" style={{ maxWidth: '800px', textAlign: 'center' }}>
+          <span className="eyebrow">Welcome</span>
+          <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '2.25rem', color: 'var(--navy)', marginBottom: '0.5rem', lineHeight: '1.25' }}>
+            Welcome to Advanced Periodontics &amp; Dental Implants, where your smile is our top priority
+          </h2>
+          <p style={{ color: 'var(--teal)', fontWeight: 700, fontSize: '1.2rem', marginBottom: '2rem' }}>
+            Healthy Gums Beautiful Smiles
+          </p>
+          <div style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', gap: '1.25rem', color: 'var(--ink-soft)', lineHeight: '1.8', fontSize: '1.02rem' }}>
+            <p>
+              Conveniently located in both San Antonio and Schertz, TX, our practice is proudly led by Dr. Houssam Alghadban, an accomplished periodontist with years of experience in transforming the dental health of patients from Schertz, San Antonio, New Braunfels, Cibolo, and the surrounding areas.
+            </p>
+            <p>
+              At Advanced Periodontics &amp; Dental Implants, we are committed to providing exceptional, personalized care for all our patients. Our state-of-the-art facility is designed to create a comfortable and welcoming environment, allowing you to relax and feel at ease as we address your periodontal needs.
+            </p>
+            <p>
+              Dr. Alghadban and our dedicated team of professionals are passionate about helping you achieve optimal oral health. We offer a comprehensive range of services, including periodontal treatment, dental implants, gum grafting, and more. Our practice utilizes the latest technology and techniques to ensure your experience is as effective and painless as possible.
+            </p>
+            <p>
+              We understand the importance of a healthy smile, and our goal is to restore your confidence and improve your overall wellbeing. Whether you are visiting us for a routine check-up or a more complex procedure, rest assured that you are in capable and caring hands at Advanced Periodontics &amp; Dental Implants.
+            </p>
+            <p>
+              Thank you for choosing us as your partner in dental health. We look forward to meeting you and working together to create the radiant smile you deserve.
+            </p>
           </div>
         </div>
       </section>
@@ -265,72 +393,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section section-anchor" id="home-patient">
-        <div className="container">
-          <div className="section-header">
-            <span className="eyebrow">For New Patients</span>
-            <h2 className="section-title">Everything Ready Before You Arrive</h2>
-            <p className="section-lead">
-              Download forms, check accepted insurance, and review office hours so your
-              first visit is smooth and stress-free.
-            </p>
-          </div>
-          <div className="home-panel-grid">
-            <div className="home-panel-card">
-              <div className="home-panel-card__icon"><i className="fas fa-file-medical-alt"></i></div>
-              <h3>Pre-Visit Forms</h3>
-              <p>Complete health history and registration forms ahead of time.</p>
-            </div>
-            <div className="home-panel-card">
-              <div className="home-panel-card__icon"><i className="fas fa-shield-alt"></i></div>
-              <h3>Insurance Guidance</h3>
-              <p>We accept major plans and help verify your benefits in advance.</p>
-            </div>
-            <div className="home-panel-card">
-              <div className="home-panel-card__icon"><i className="fas fa-clock"></i></div>
-              <h3>Office Hours</h3>
-              <p>Mon-Thu 8:30-5:00 and Fri 8:00-3:00 across both locations.</p>
-            </div>
-          </div>
-          <div style={{ textAlign: 'center', marginTop: '2.25rem' }}>
-            <Link to="/patient-info" className="btn btn-primary">
-              Go to Patient Info <i className="fas fa-arrow-right"></i>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="section section--alt section-anchor" id="home-referring">
-        <div className="container">
-          <div className="section-header">
-            <span className="eyebrow">Professional Collaboration</span>
-            <h2 className="section-title">Referring Doctors Portal</h2>
-            <p className="section-lead">
-              Fast referrals, clear communication, and co-managed care to support your patients
-              through implant and periodontal treatment.
-            </p>
-          </div>
-          <div className="home-ref-wrap">
-            <div className="home-ref-wrap__item">
-              <i className="fas fa-stethoscope"></i>
-              <span>Board-Certified Specialty Care</span>
-            </div>
-            <div className="home-ref-wrap__item">
-              <i className="fas fa-file-signature"></i>
-              <span>Simple Online Referral</span>
-            </div>
-            <div className="home-ref-wrap__item">
-              <i className="fas fa-comments"></i>
-              <span>Timely Clinical Updates</span>
-            </div>
-          </div>
-          <div style={{ textAlign: 'center', marginTop: '2.25rem' }}>
-            <Link to="/referring-doctors" className="btn btn-primary">
-              Open Referral Form <i className="fas fa-arrow-right"></i>
-            </Link>
-          </div>
-        </div>
-      </section>
 
       {/* ── PATIENT TESTIMONIALS ─────────────────────────────────── */}
       <section className="section section--alt section-anchor" id="home-testimonials">

@@ -8,8 +8,10 @@ export const NAV_LINKS: NavLink[] = [
   { to: '/',                  label: 'Home',               hash: '#home-top' },
   { to: '/about',             label: 'About Us',           hash: '#home-about' },
   { to: '/services',          label: 'Services',           hash: '#home-services' },
-  { to: '/patient-info',      label: 'Patient Info',       hash: '#home-patient' },
-  { to: '/referring-doctors', label: 'Referring Doctors',   hash: '#home-referring' },
+  { to: '/our-technology',    label: 'Our Technology' },
+  { to: '/patient-info',      label: 'Patient Info' },
+  { to: '/referring-doctors', label: 'Referring Doctors' },
+  { to: '/blog',              label: 'Blog' },
   { to: '/contact-us',        label: 'Contact Us',         hash: '#home-contact' },
   { to: PAYMENT_PORTAL_URL,   label: 'Pay Online',         isExternal: true },
 ];

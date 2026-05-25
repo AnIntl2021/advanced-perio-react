@@ -9,6 +9,11 @@ import PatientInfo from './components/PatientInfo';
 import Doctors from './components/Doctors';
 import Contact from './components/Contact';
 import ChatBot from './components/ChatBot';
+import ServiceDetail from './components/ServiceDetail';
+import Blog from './components/Blog';
+import BlogPost from './components/BlogPost';
+import Technology from './components/Technology';
+import ThankYou from './components/ThankYou';
 import { useScrollToTop, useScrollReveal } from './hooks/useScroll';
 import { PHONE_NUMBER, PHONE_URI } from './utils/constants';
 
@@ -45,9 +50,15 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/services/:slug" element={<ServiceDetail />} />
+          <Route path="/jaw-bone-augmentation-sinus-lift" element={<ServiceDetail />} />
           <Route path="/patient-info" element={<PatientInfo />} />
           <Route path="/referring-doctors" element={<Doctors />} />
           <Route path="/contact-us" element={<Contact />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/our-technology" element={<Technology />} />
+          <Route path="/thank-you" element={<ThankYou />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </main>
