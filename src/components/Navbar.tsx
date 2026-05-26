@@ -40,15 +40,12 @@ export default function Navbar() {
 
   const isHome = pathname === '/';
 
-  const getLinkTarget = (linkTo: string, linkHash?: string) => {
-    if (!isHome) return linkTo;
-    return linkHash || linkTo;
-  };
+  const getLinkTarget = (linkTo: string, _linkHash?: string) => linkTo;
 
   const isActive = (linkTo: string, linkHash?: string) => {
     if (!isHome) return pathname === linkTo;
     if (linkTo === '/') return hash === '' || hash === '#home-top';
-    return hash === linkHash;
+    return pathname === linkTo || hash === linkHash;
   };
 
   return (

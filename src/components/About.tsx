@@ -26,91 +26,57 @@ export default function About() {
   return (
     <div>
       {/* ── PREMIUM HERO BANNER ───────────────────────────────────── */}
-      <section style={{
-        background: 'linear-gradient(135deg, #0a1628 0%, var(--teal-dark) 50%, #0d9488 100%)',
-        padding: '5rem 0 4rem',
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
-        {/* Decorative blobs */}
-        <div style={{ position: 'absolute', top: '-80px', right: '-80px', width: '400px', height: '400px', borderRadius: '50%', background: 'rgba(13,148,136,0.18)', pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', bottom: '-60px', left: '10%', width: '280px', height: '280px', borderRadius: '50%', background: 'rgba(255,255,255,0.04)', pointerEvents: 'none' }} />
+      <section className="about-page-hero">
+        <div className="about-page-hero__blob about-page-hero__blob--right" />
+        <div className="about-page-hero__blob about-page-hero__blob--left" />
 
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: '3rem', alignItems: 'center' }}>
+          <div className="about-page-hero__grid">
 
             {/* Left: text */}
-            <div>
-              <span style={{ display: 'inline-block', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: '1rem' }}>
+            <div className="about-page-hero__content">
+              <span className="about-page-hero__eyebrow">
                 Our Practice
               </span>
-              <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2.4rem, 5vw, 3.8rem)', color: 'var(--white)', lineHeight: '1.08', fontWeight: 600, marginBottom: '1.25rem' }}>
+              <h1 className="about-page-hero__title">
                 Meet Dr.<br />Houssam Alghadban
               </h1>
-              <p style={{ fontSize: '1.05rem', color: 'rgba(255,255,255,0.75)', lineHeight: '1.7', maxWidth: '480px', marginBottom: '2rem' }}>
+              <p className="about-page-hero__lead">
                 Board-certified periodontist with 15+ years of specialty care in San Antonio, TX — dedicated to advanced gum health and beautiful smiles.
               </p>
 
               {/* Credential chips */}
-              <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+              <div className="about-page-hero__badges">
                 {['AAP Member', 'ABP Diplomate', 'ADA Member', 'UT Health Adjunct Prof.'].map(badge => (
-                  <span key={badge} style={{
-                    background: 'rgba(255,255,255,0.1)',
-                    border: '1px solid rgba(255,255,255,0.2)',
-                    borderRadius: '50px',
-                    padding: '0.35rem 0.95rem',
-                    fontSize: '0.78rem',
-                    fontWeight: 600,
-                    color: 'rgba(255,255,255,0.9)',
-                    backdropFilter: 'blur(8px)'
-                  }}>{badge}</span>
+                  <span key={badge}>{badge}</span>
                 ))}
               </div>
 
               {/* Stats row */}
-              <div style={{ display: 'flex', gap: '2.5rem', marginTop: '2.5rem' }}>
+              <div className="about-page-hero__stats">
                 {[['15+', 'Years Experience'], ['1000+', 'Implants Placed'], ['2', 'Locations']].map(([num, label]) => (
                   <div key={label}>
-                    <div style={{ fontFamily: 'var(--font-serif)', fontSize: '2rem', fontWeight: 700, color: 'var(--white)', lineHeight: 1 }}>{num}</div>
-                    <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)', marginTop: '0.25rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em' }}>{label}</div>
+                    <div className="about-page-hero__stat-num">{num}</div>
+                    <div className="about-page-hero__stat-label">{label}</div>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Right: doctor photo */}
-            <div style={{ position: 'relative', flexShrink: 0 }}>
-              <div style={{
-                width: '260px',
-                height: '320px',
-                borderRadius: '20px',
-                overflow: 'hidden',
-                boxShadow: '0 24px 60px rgba(0,0,0,0.45)',
-                border: '3px solid rgba(255,255,255,0.15)'
-              }}>
+            <div className="about-page-hero__photo-wrap">
+              <div className="about-page-hero__photo">
                 <img
                   src={drDds}
                   alt="Dr. Houssam Alghadban"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }}
                 />
               </div>
               {/* Floating badge */}
-              <div style={{
-                position: 'absolute',
-                bottom: '-16px',
-                left: '-20px',
-                background: 'var(--white)',
-                borderRadius: '12px',
-                padding: '0.65rem 1rem',
-                boxShadow: '0 8px 24px rgba(0,0,0,0.2)',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.5rem'
-              }}>
-                <i className="fas fa-award" style={{ color: 'var(--teal)', fontSize: '1.1rem' }}></i>
+              <div className="about-page-hero__cert">
+                <i className="fas fa-award"></i>
                 <div>
-                  <div style={{ fontSize: '0.7rem', fontWeight: 800, color: 'var(--navy)', letterSpacing: '0.04em' }}>BOARD CERTIFIED</div>
-                  <div style={{ fontSize: '0.65rem', color: 'var(--muted)' }}>Periodontist</div>
+                  <div className="about-page-hero__cert-title">BOARD CERTIFIED</div>
+                  <div className="about-page-hero__cert-subtitle">Periodontist</div>
                 </div>
               </div>
             </div>
@@ -119,7 +85,7 @@ export default function About() {
         </div>
 
         {/* Wave bottom */}
-        <div style={{ position: 'absolute', bottom: -1, left: 0, right: 0, height: '56px', background: 'var(--white)', clipPath: 'ellipse(55% 100% at 50% 100%)' }} />
+        <div className="about-page-hero__wave" />
       </section>
 
       {/* ── MAIN CONTENT & SIDEBAR ───────────────────────────────── */}
@@ -130,7 +96,7 @@ export default function About() {
             {/* Left Content */}
             <div className="inner-page-layout__main">
               {/* Heading + family photo side-by-side */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2.5rem', alignItems: 'center', marginBottom: '2.5rem' }}>
+              <div className="about-content-grid about-content-grid--center">
                 <div>
                   <h2 className="section-title" style={{ fontFamily: 'var(--font-serif)', color: 'var(--teal)', marginBottom: '1.25rem' }}>
                     Meet The Periodontist
@@ -161,7 +127,7 @@ export default function About() {
               <p style={{ marginBottom: '1rem' }}>
                 Dr. Alghadban is proficient in all the contemporary nonsurgical and surgical gum treatment modalities. These include:
               </p>
-              <ul style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.45rem 2rem', listStyle: 'none', paddingLeft: 0, marginBottom: '2.5rem', marginTop: '1rem' }}>
+              <ul className="about-modalities-list">
                 {modalities.map(m => (
                   <li key={m} style={{ display: 'flex', alignItems: 'center', gap: '0.55rem', fontSize: '0.95rem', color: 'var(--ink-soft)', padding: '0.3rem 0' }}>
                     <i className="fas fa-check-circle" style={{ color: 'var(--teal)', flexShrink: 0, fontSize: '0.9rem' }}></i>
@@ -171,7 +137,7 @@ export default function About() {
               </ul>
 
               {/* Profile Block */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.6fr', gap: '2.5rem', alignItems: 'start', marginTop: '2.5rem', borderTop: '1px solid var(--border)', paddingTop: '2.5rem' }}>
+              <div className="about-profile-grid">
 
                 {/* Left: Doctor photo — full, not cropped */}
                 <div>
@@ -209,7 +175,7 @@ export default function About() {
 
               {/* Memberships Block — text left, presentation photo right */}
               <div style={{ marginTop: '3rem', borderTop: '1px solid var(--border)', paddingTop: '2.5rem' }}>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2.5rem', alignItems: 'center' }}>
+                <div className="about-content-grid about-content-grid--center">
                   <div>
                     <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.45rem', color: 'var(--teal)', marginBottom: '0.75rem' }}>
                       Recognized Memberships &amp; Teaching Experience
