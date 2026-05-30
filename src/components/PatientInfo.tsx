@@ -33,18 +33,11 @@ export default function PatientInfo() {
             <div className="inner-page-layout__main" style={{ paddingRight: '1rem', display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
               
               {/* Patient Form Card */}
-              <div style={{
-                background: 'var(--white)',
-                border: '1px solid var(--border)',
-                borderRadius: '16px',
-                padding: '3rem 2.5rem',
-                boxShadow: 'var(--shadow-md)',
+              <div className="patient-info-card" style={{
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '2rem',
-                alignItems: 'flex-start',
-                position: 'relative',
-                overflow: 'hidden'
+                alignItems: 'flex-start'
               }}>
                 {/* Accent Gradient Border */}
                 <div style={{
@@ -63,7 +56,7 @@ export default function PatientInfo() {
                   </h2>
                 </div>
 
-                <div style={{ display: 'flex', gap: '1.25rem', alignItems: 'flex-start' }}>
+                <div className="patient-info-card__content-row" style={{ display: 'flex', gap: '1.25rem', alignItems: 'flex-start' }}>
                   <div style={{
                     width: '64px',
                     height: '64px',
@@ -90,17 +83,13 @@ export default function PatientInfo() {
 
                 <div style={{ width: '100%', borderTop: '1px solid var(--border)', paddingTop: '2rem', display: 'flex', justifyContent: 'flex-start' }}>
                   <a
-                    href="/New-Patient-Forms.pdf"
-                    download="New-Patient-Forms.pdf"
-                    className="btn btn-primary"
+                    href="/Patient-Forms.pdf?v=1.1"
+                    download="Patient-Forms.pdf"
+                    className="btn btn-primary patient-info-card__btn"
                     style={{
-                      padding: '0.95rem 2.2rem',
-                      fontSize: '0.95rem',
                       fontWeight: 700,
                       textTransform: 'uppercase',
                       letterSpacing: '0.08em',
-                      display: 'inline-flex',
-                      alignItems: 'center',
                       gap: '0.65rem'
                     }}
                   >
@@ -111,15 +100,7 @@ export default function PatientInfo() {
               </div>
 
               {/* Office Hours Table below Download Card */}
-              <div style={{
-                background: 'var(--white)',
-                border: '1px solid var(--border)',
-                borderRadius: '16px',
-                padding: '2.5rem 2.5rem',
-                boxShadow: 'var(--shadow-md)',
-                position: 'relative',
-                overflow: 'hidden'
-              }}>
+              <div className="patient-info-card">
                 <div style={{
                   position: 'absolute',
                   top: 0,
@@ -158,4 +139,3 @@ export default function PatientInfo() {
     </div>
   );
 }
-

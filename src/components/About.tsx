@@ -42,7 +42,7 @@ export default function About() {
                 Meet Dr.<br />Houssam Alghadban
               </h1>
               <p className="about-page-hero__lead">
-                Board-certified periodontist with 15+ years of specialty care in San Antonio, TX — dedicated to advanced gum health and beautiful smiles.
+               Board-certified periodontist with 20+ years of specialty care in San Antonio and Schertz, TX           
               </p>
 
               {/* Credential chips */}
@@ -54,7 +54,7 @@ export default function About() {
 
               {/* Stats row */}
               <div className="about-page-hero__stats">
-                {[['15+', 'Years Experience'], ['1000+', 'Implants Placed'], ['2', 'Locations']].map(([num, label]) => (
+                {[['20+', 'Years Experience'], ['1000+', 'Implants Placed'], ['2', 'Locations']].map(([num, label]) => (
                   <div key={label}>
                     <div className="about-page-hero__stat-num">{num}</div>
                     <div className="about-page-hero__stat-label">{label}</div>
@@ -102,7 +102,7 @@ export default function About() {
                     Meet The Periodontist
                   </h2>
                   <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--ink-soft)', margin: 0 }}>
-                    At our practice, we specialize in providing advanced gum treatment services utilizing the latest technologies. Our founder, Dr. Houssam Alghadban, is a highly skilled and board-certified periodontist with over 15 years of experience in San Antonio.
+                    At our practice, we specialize in providing advanced gum treatment services utilizing the latest technologies. Our founder, Dr. Houssam Alghadban, is a highly skilled and board-certified periodontist with over 20 years of experience in San Antonio and Schertz, TX.
                   </p>
                 </div>
                 <div>
@@ -168,7 +168,7 @@ export default function About() {
                     Dr. Houssam Alghadban, also known as Dr. Al, has been practicing dentistry since 2001. He specializes in periodontology, oral plastic surgery, and dental implants. After his exposure to different specialties, he decided to do a three years intensive postdoctoral program in Periodontology. Dr. Al was accepted at Louisiana State University, School of Dentistry in the periodontics postdoctoral program. This course focused on the clinical treatment of patients and research activities.
                   </p>
                   <p style={{ lineHeight: '1.75', color: 'var(--ink-soft)' }}>
-                    Dr. Al has been providing specialty dental care services in San Antonio, Texas for more than 15 years. When he is not at the office, Dr. Al enjoys spending quality time with his wife, Nour, and daughters, Talia, Alma and Luna.
+                    Dr. Al has been providing specialty dental care services in San Antonio, Texas for more than 20 years. When he is not at the office, Dr. Al enjoys spending quality time with his wife, Nour, and daughters, Talia, Alma and Luna.
                   </p>
                 </div>
               </div>
@@ -209,29 +209,30 @@ export default function About() {
                   Community Involvement
                 </h3>
                 {/* Card: image left, text right */}
-                <div style={{
-                  display: 'grid',
-                  gridTemplateColumns: '1fr 1.4fr',
-                  gap: '2rem',
-                  alignItems: 'center',
-                  background: 'linear-gradient(135deg, var(--teal-light) 0%, #f0fdfa 100%)',
-                  borderRadius: '16px',
-                  padding: '2rem',
-                  border: '1px solid rgba(13,148,136,0.12)'
-                }}>
-                  <div style={{ borderRadius: '12px', overflow: 'hidden', boxShadow: 'var(--shadow-md)' }}>
-                    <img
-                      src={drCommunity}
-                      alt="Dr. Al with team in Southeast Asia"
-                      style={{ width: '100%', height: 'auto', display: 'block' }}
-                    />
+                <div className="about-community-card">
+                  <div className="about-community-media">
+                    <div style={{ borderRadius: '12px', overflow: 'hidden', boxShadow: 'var(--shadow-md)' }}>
+                      <img
+                        src={drCommunity}
+                        alt="Dr. Al with team in Southeast Asia"
+                        style={{ width: '100%', height: 'auto', display: 'block' }}
+                      />
+                    </div>
+                    <div className="about-community-video">
+                      <iframe
+                        src="https://www.youtube.com/embed/B2BDVAH5Wwk"
+                        title="Smile for Everyone and iServe Foundation outreach"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                      />
+                    </div>
                   </div>
                   <div>
                     <h4 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.5rem', color: 'var(--teal-dark)', lineHeight: '1.25', marginBottom: '1rem' }}>
                       Committed to Our Community
                     </h4>
                     <p style={{ fontSize: '0.97rem', lineHeight: '1.8', color: 'var(--ink-soft)', margin: 0 }}>
-                      Giving back to our community is important to us. Dr. Alghadban proudly participated in a missionary outreach with <strong>Smile for Everyone Foundation</strong> and <strong>iServe Foundation</strong>, providing essential dental and periodontal care to over 1,000 patients in underserved areas of Thailand and Laos (03/2019).
+                      Giving back to our community is important to us. Dr. Alghadban proudly participated in a missionary outreach with <a href="https://www.youtube.com/watch?v=B2BDVAH5Wwk" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--teal)', fontWeight: 700, textDecoration: 'underline' }}>Smile for Everyone Foundation and iServe Foundation</a>, providing essential dental and periodontal care to over 1,000 patients in underserved areas of Thailand and Laos (03/2019).
                     </p>
                   </div>
                 </div>

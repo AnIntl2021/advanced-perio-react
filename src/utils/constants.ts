@@ -13,7 +13,6 @@ export const NAV_LINKS: NavLink[] = [
   { to: '/referring-doctors', label: 'Referring Doctors' },
   { to: '/blog',              label: 'Blog' },
   { to: '/contact-us',        label: 'Contact Us',         hash: '#home-contact' },
-  { to: PAYMENT_PORTAL_URL,   label: 'Pay Online',         isExternal: true },
 ];
 export const GOOGLE_MAPS_API_KEY = "AIzaSyBW9_zUXttrvLnUH-ZvoFM7uZijyZTdd8k";
 
